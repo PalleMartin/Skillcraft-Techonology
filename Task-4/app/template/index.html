@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 04 – Hand Gesture Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TASK 04 – Hand Gesture Recognition</h1>
+            <p>Real-time gesture classification from images/videos</p>
+        </header>
+        
+        <main>
+            <div class="upload-section">
+                <h2>Upload Image</h2>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <input type="file" id="image-input" accept="image/*" required>
+                    <button type="submit">Recognize Gesture</button>
+                </form>
+                <div id="result"></div>
+            </div>
+            
+            <div class="webcam-section">
+                <h2>Webcam Recognition</h2>
+                <div class="video-container">
+                    <video id="video" width="320" height="240" autoplay></video>
+                    <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+                </div>
+                <button id="start-camera">Start Camera</button>
+                <button id="capture-btn" disabled>Capture & Recognize</button>
+                <div id="webcam-result"></div>
+            </div>
+        </main>
+        
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing gesture...</p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
